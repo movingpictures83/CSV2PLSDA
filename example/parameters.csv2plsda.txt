@@ -1,0 +1,6 @@
+normabund	taxa.csv
+metadata	sample_data.csv
+samples	plsda.normabund.csv
+categories	obs_names.txt
+observables	var_ID.txt
+targets	testsets.txt

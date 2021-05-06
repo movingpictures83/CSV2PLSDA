@@ -1,0 +1,2 @@
+Prefix plugins/CSV2PLSDA/example
+Plugin CSV2PLSDA inputfile parameters.csv2plsda.txt outputfile .
