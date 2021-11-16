@@ -4,6 +4,12 @@ import PyPluMA
 
 import sys
 
+def quote(s):
+    return '\"' + s + '\"'
+
+def unquote(s):
+    return s[1:len(s)-1]
+
 class CSV2PLSDAPlugin:
    def input(self, filename):
       # Parameter file
@@ -42,12 +48,19 @@ class CSV2PLSDAPlugin:
       testsets = open(filename+"/"+self.parameters["targets"], 'w') # Different categories
       normabundmod = open(filename+"/"+self.parameters["samples"], 'w')
 
+      present = {}
       for microbe in self.contents:
+          if (microbe not in present):
+              present[microbe] = 1
+          else:
+              present[microbe] += 1
+              microbe = quote(unquote(microbe) + "_" + str(present[microbe]))
           var_ID.write(microbe+"\n")
 
       for entry in self.diffcat:
          testsets.write(entry+"\n")
 
+      print(self.categories)
       for j in range(0, len(self.lines)):
           contents = self.lines[j].split(',')
           sample = contents[0]
