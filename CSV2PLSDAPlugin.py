@@ -60,7 +60,6 @@ class CSV2PLSDAPlugin:
       for entry in self.diffcat:
          testsets.write(entry+"\n")
 
-      print(self.categories)
       for j in range(0, len(self.lines)):
           contents = self.lines[j].split(',')
           sample = contents[0]
